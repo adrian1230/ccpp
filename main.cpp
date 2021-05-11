@@ -31,4 +31,8 @@ int main()
     user_two.Name = "George Smither";
     user_two.Location = "Manchester";
     user_two.introduction();
+
+    // Default constructor
+    User user_default;
+    user_default.introduction();
 };
