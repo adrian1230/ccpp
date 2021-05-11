@@ -4,13 +4,42 @@ using namespace std;
 
 class User {
     // protected:
-    // private:
-    public:
+    private:
         string Name;
         string Location;
         int Age;
-
+    public:
         // Behavior
+        void setName(string name)
+        {
+            Name = name;
+        }
+
+        string getName()
+        {
+            return Name;
+        }
+
+        void setLocation(string location)
+        {
+            Location = location;
+        }
+
+        string getLocation()
+        {
+            return Location;
+        }
+
+        void setAge(int age)
+        {
+            Age = age;
+        }
+
+        int getAge()
+        {
+            return Age;
+        }
+
         void introduction()
         {
             cout << "My name is " << Name << endl;
