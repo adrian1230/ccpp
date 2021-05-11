@@ -25,4 +25,10 @@ int main()
     user_one.Name = "Bain Fard";
     user_one.Location = "Yorkshire";
     user_one.introduction();
+
+    User user_two;
+    user_two.Age = 34;
+    user_two.Name = "George Smither";
+    user_two.Location = "Manchester";
+    user_two.introduction();
 };
