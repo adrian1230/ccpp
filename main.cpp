@@ -70,12 +70,17 @@ class User:AbstractUser {
             else
                 cout << "Failed for upgrade" << endl;
         }
+
+        virtual void Surfing()
+        {
+            cout << "This is boring" << endl;
+        }
 };
 
 class Admin:public User {
     public:
         string Responsibility;
-        Admin(string duty, string name, string location, int age):User(name,location,age)
+        Admin(string name, string location, int age,string duty):User(name,location,age)
         {
             Responsibility = duty;
         }
@@ -83,9 +88,13 @@ class Admin:public User {
         {
             cout << getName() << " " << Responsibility << " in " << Location << endl;
         }
+        void Surfing()
+        {
+            cout << "Checking security" << endl;
+        }
 };
 
-class PotentialUser: User {
+class PotentialUser:public User {
     public:
         string InterestedContent;
         void PromoteContent() {
@@ -94,6 +103,10 @@ class PotentialUser: User {
         PotentialUser(string name, string location, int age, string content):User(name,location,age)
         {
             InterestedContent = content;
+        }
+        void Surfing()
+        {
+            cout << "Browsing new " << InterestedContent << endl;
         }
 };
 
@@ -131,10 +144,27 @@ int main()
 
     user_two.AskForUpgrade();
 
-    Admin admin_0 = Admin("Follow Up","Brian","London",24);
+    Admin admin_0 = Admin("Brian","London",24,"Follow Up");
     admin_0.YourDuty();
     admin_0.AskForUpgrade();
 
     PotentialUser p_user_101 = PotentialUser("Kalvin","Calary",14,"Clothing");
     p_user_101.PromoteContent();
+
+    admin_0.Surfing();
+    p_user_101.Surfing();
+
+    Admin admin_1 = Admin("Joe","Ottawa",121,"Supervisior");
+    PotentialUser potential_user_2 = PotentialUser(
+        "Ben",
+        "Alfred",
+        78,
+        "Porn DVD"
+    );
+
+    User *bitch = &admin_0;
+    User *bastard = &potential_user_2;
+
+    bitch->Surfing();
+    bastard->Surfing();
 };
