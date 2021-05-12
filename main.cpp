@@ -8,7 +8,7 @@ class User {
         string Name;
         string Location;
         int Age;
-        
+
     public:
         // Behavior
         void setName(string name)
@@ -79,4 +79,8 @@ int main()
     // Default constructor
     // User user_default;
     // user_default.introduction();
+
+    User user_three = User("Darry","Austin",23);
+    user_three.setAge(45);
+    user_three.introduction();
 };
