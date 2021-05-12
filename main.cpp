@@ -8,6 +8,7 @@ class User {
         string Name;
         string Location;
         int Age;
+        
     public:
         // Behavior
         void setName(string name)
