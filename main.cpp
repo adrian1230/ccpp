@@ -2,7 +2,12 @@
 using std::string;
 using namespace std;
 
-class User {
+class AbstractUser
+{
+    virtual void AskForUpgrade() = 0;
+};
+
+class User:AbstractUser {
     // protected:
     private:
         string Name;
@@ -33,6 +38,7 @@ class User {
 
         void setAge(int age)
         {
+            if(age>=18)
             Age = age;
         }
 
@@ -55,6 +61,14 @@ class User {
             Location = location;
             Age = age;
         }
+
+        void AskForUpgrade()
+        {
+            if(Age>=30)
+                cout << Name << " Upgraded" << endl;
+            else
+                cout << "Failed for upgrade" << endl;
+        }
 };
 
 int main()
@@ -64,6 +78,7 @@ int main()
         "Yorkshire",
         14
     );
+
     // user_one.Name = "Bain Fard";
     // user_one.Location = "Yorkshire";
     // user_one.Age = 14;
@@ -83,4 +98,10 @@ int main()
     User user_three = User("Darry","Austin",23);
     user_three.setAge(45);
     user_three.introduction();
+
+    User user_4 = User("a","b",3);
+    user_4.setLocation("Denmark");
+    cout << user_4.getLocation() << endl;
+
+    user_two.AskForUpgrade();
 };
