@@ -8,10 +8,11 @@ class AbstractUser
 };
 
 class User:AbstractUser {
-    // protected:
+    protected:
+        string Location;
+
     private:
         string Name;
-        string Location;
         int Age;
 
     public:
@@ -80,7 +81,7 @@ class Admin: User {
         }
         void YourDuty()
         {
-            cout << getName() << " " << Responsibility << endl;
+            cout << getName() << " " << Responsibility << " in " << Location << endl;
         }
 };
 
