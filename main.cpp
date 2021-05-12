@@ -72,7 +72,7 @@ class User:AbstractUser {
         }
 };
 
-class Admin: User {
+class Admin:public User {
     public:
         string Responsibility;
         Admin(string duty, string name, string location, int age):User(name,location,age)
@@ -82,6 +82,18 @@ class Admin: User {
         void YourDuty()
         {
             cout << getName() << " " << Responsibility << " in " << Location << endl;
+        }
+};
+
+class PotentialUser: User {
+    public:
+        string InterestedContent;
+        void PromoteContent() {
+            cout << Location << " is popular with " << InterestedContent << endl;
+        }
+        PotentialUser(string name, string location, int age, string content):User(name,location,age)
+        {
+            InterestedContent = content;
         }
 };
 
@@ -121,4 +133,8 @@ int main()
 
     Admin admin_0 = Admin("Follow Up","Brian","London",24);
     admin_0.YourDuty();
+    admin_0.AskForUpgrade();
+
+    PotentialUser p_user_101 = PotentialUser("Kalvin","Calary",14,"Clothing");
+    p_user_101.PromoteContent();
 };
