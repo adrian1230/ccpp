@@ -71,6 +71,19 @@ class User:AbstractUser {
         }
 };
 
+class Admin: User {
+    public:
+        string Responsibility;
+        Admin(string duty, string name, string location, int age):User(name,location,age)
+        {
+            Responsibility = duty;
+        }
+        void YourDuty()
+        {
+            cout << getName() << " " << Responsibility << endl;
+        }
+};
+
 int main()
 {
     User user_one = User(
@@ -104,4 +117,7 @@ int main()
     cout << user_4.getLocation() << endl;
 
     user_two.AskForUpgrade();
+
+    Admin admin_0 = Admin("Follow Up","Brian","London",24);
+    admin_0.YourDuty();
 };
